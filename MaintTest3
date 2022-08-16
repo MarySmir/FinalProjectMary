@@ -1,0 +1,34 @@
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
+
+public class MainTest3 {
+
+    @Test
+    public void userInformation() throws InterruptedException {
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Maria\\Desktop\\אוטומציה\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+
+        driver.get("https://petstore.octoperf.com/actions/Catalog.action");
+        WebElement catsPicture= driver.findElement(By.cssSelector("#MainImageContent > map > area:nth-child(5)"));
+        catsPicture.click();
+        Thread.sleep(2000);
+        WebElement Return= driver.findElement(By.cssSelector("#BackLink > a"));
+        Return.click();
+        Thread.sleep(2000);
+        WebElement CatsMenu= driver.findElement(By.cssSelector("#SidebarContent > a:nth-child(7) > img"));
+        CatsMenu.click();
+        Thread.sleep(2000);
+        WebElement Return1= driver.findElement(By.cssSelector("#BackLink > a"));
+        Return1.click();
+
+        System.out.println("WE DID IT !!");
+
+    }
+}
+
