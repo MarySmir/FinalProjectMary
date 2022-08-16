@@ -1,0 +1,64 @@
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
+
+public class MainTest2 {
+
+    @Test
+    public void accountInformation() throws InterruptedException {
+        ChromeDriver driver;
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Maria\\Desktop\\אוטומציה\\chromedriver.exe");
+        WebDriver driver1 = new ChromeDriver();
+        driver1.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        driver1.get("https://petstore.octoperf.com/actions/Catalog.action");
+        WebElement myAccountLink = driver1.findElement(By.cssSelector("#MenuContent > a:nth-child(3)"));
+        myAccountLink.click();
+        WebElement emailTextBox = driver1.findElement(By.name("username"));
+        emailTextBox.sendKeys("smirmary@gmail.com");
+        WebElement passwordTExtBox = driver1.findElement(By.name("password"));
+        passwordTExtBox.sendKeys("Toohardlife0897411");
+        Thread.sleep(1000);
+        WebElement sBUTTUN = driver1.findElement(By.cssSelector("#Catalog > a"));
+        sBUTTUN.click();
+        Thread.sleep(1000);
+        WebElement userTextBox = driver1.findElement(By.name("username"));
+        userTextBox.sendKeys("Maria0808");
+        WebElement newPassword = driver1.findElement(By.name("password"));
+        newPassword.sendKeys("Tataboomm20879");
+        WebElement passwordRepeat = driver1.findElement(By.name("repeatedPassword"));
+        passwordRepeat.sendKeys("Tataboomm20879");
+        WebElement firstName = driver1.findElement(By.name("account.firstName"));
+        firstName.sendKeys("Maryyy");
+        WebElement lastName = driver1.findElement(By.name("account.lastName"));
+        lastName.sendKeys("Smir");
+        WebElement email2 = driver1.findElement(By.name("account.email"));
+        email2.sendKeys("smirmary@gmail.com");
+        WebElement NumberPhone = driver1.findElement(By.name("account.phone"));
+        NumberPhone.sendKeys("12345678");
+        WebElement Address = driver1.findElement(By.name("account.address1"));
+        Address.sendKeys("baalshemtov10");
+        WebElement Address2 = driver1.findElement(By.name("account.address2"));
+        Address2.sendKeys("baalshemtov10");
+        WebElement City = driver1.findElement(By.name("account.city"));
+        City.sendKeys("Petah tikva");
+        WebElement State = driver1.findElement(By.name("account.state"));
+        State.sendKeys("Merkaz");
+        WebElement Zip = driver1.findElement(By.name("account.zip"));
+        Zip.sendKeys("334568-98700");
+        WebElement Country = driver1.findElement(By.name("account.country"));
+        Country.sendKeys("Israel");
+        Thread.sleep(3000);
+        WebElement EnableMyList = driver1.findElement(By.name("account.listOption"));
+        EnableMyList.click();
+        WebElement Save = driver1.findElement(By.name("newAccount"));
+        Save.click();
+        driver1.quit();
+
+        System.out.println("wohhooo it passed");
+
+    }
+}
