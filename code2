@@ -1,0 +1,39 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
+
+public class code2 {
+    String path;
+    WebDriver driver;
+
+    public code2(String path) {
+        this.path = path;
+        setPrep();
+    }
+
+    public void setPrep() {
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Maria\\Desktop\\אוטומציה\\chromedriver.exe");
+        this.driver = new ChromeDriver();
+        this.driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        this.driver.manage().window().maximize();
+    }
+
+    public void actualLink() throws InterruptedException {
+        driver.get("https://petstore.octoperf.com/actions/Catalog.action");
+        WebElement catsPicture = driver.findElement(By.cssSelector("#MainImageContent > map > area:nth-child(5)"));
+        catsPicture.click();
+        Thread.sleep(2000);
+        WebElement Return = driver.findElement(By.cssSelector("#BackLink > a"));
+        Return.click();
+        Thread.sleep(2000);
+        WebElement CatsMenu = driver.findElement(By.cssSelector("#SidebarContent > a:nth-child(7) > img"));
+        CatsMenu.click();
+        Thread.sleep(2000);
+        WebElement Return1 = driver.findElement(By.cssSelector("#BackLink > a"));
+        Return1.click();
+        driver.quit();
+    }
+}
