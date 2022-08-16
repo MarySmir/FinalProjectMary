@@ -1,0 +1,9 @@
+public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        code1 Maria1 = new code1("webdriver.chrome.driver\", \"C:\\Users\\Maria\\Desktop\\אוטומציה\\chromedriver.exe");
+        Maria1.accountInformation();
+
+        code2 Maria2= new code2("webdriver.chrome.driver\", \"C:\\Users\\Maria\\Desktop\\אוטומציה\\chromedriver.exe");
+        Maria2.actualLink();
+    }
+}
